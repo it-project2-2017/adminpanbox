@@ -25,7 +25,7 @@ import org.glassfish.jersey.client.ClientConfig;
  */
 public class WSClient {
     private Client client;
-    private String RS_URL = "http://localhost:8080/PanBox-1.0/webresources/panbox";
+    private String RS_URL = "http://192.168.36.2:8010/Inventory/webresources/panbox";
     
     public void init() {
         ClientConfig cf = new ClientConfig();
@@ -235,7 +235,7 @@ public class WSClient {
         return tList;   
     }
     
-    public ArrayList<Supplier> supplierOrderList(){
+    public ArrayList<Supplier> getSuppliers(){
         SupplierList list = client.target(RS_URL)
                 .path("/suppliers")
                 .request(MediaType.APPLICATION_JSON)

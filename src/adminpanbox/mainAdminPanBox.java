@@ -5,8 +5,11 @@
  */
 package adminpanbox;
 
+import beans.Employee;
+import beans.Supplier;
 import beans.WSClient;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 import javax.swing.ImageIcon;
@@ -132,7 +135,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel29 = new javax.swing.JLabel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jLabel30 = new javax.swing.JLabel();
@@ -177,7 +180,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
         jLabel44 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jSeparator15 = new javax.swing.JSeparator();
@@ -223,14 +226,14 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jSeparator18 = new javax.swing.JSeparator();
         jLabel63 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
         jSeparator19 = new javax.swing.JSeparator();
         jLabel66 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jSeparator20 = new javax.swing.JSeparator();
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
@@ -842,36 +845,27 @@ public class mainAdminPanBox extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Supplier Code", "Supplier Name", "Contact Person", "Address", "Contact Number"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         subSupplierTwo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1010, 580));
@@ -1025,7 +1019,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel28.setText("Position:");
         subEmployeeOne.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 205, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Owner", "Cashier", "Barista", "Cook", "Waiter" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Owner", "Cashier", "Barista", "Cook", "Waiter" }));
         subEmployeeOne.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 300, 30));
 
         jLabel29.setFont(new java.awt.Font("Abadi MT Condensed", 0, 18)); // NOI18N
@@ -1086,36 +1080,27 @@ public class mainAdminPanBox extends javax.swing.JFrame {
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Employee Code", "Employee Name", "Position", "Date Hired"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane6.setViewportView(jTable5);
 
         subEmployeeTwo.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1000, 580));
@@ -1274,7 +1259,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel44.setText("Employee Name:");
         subAccountOne.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 378, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quintin Tanseco", "Dhon Anaguy", "Kamille Bonus", "Johnson Bumidang", "Marinel Bush", "Lhara Calado", "Trisha Caoili", "Kerubin Francisco", "Alegre Ojas", "Valerie Ragudos", "Carl Michael Gian Kristo Ramirez", "Jena Salcedo" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Quintin Tanseco", "Dhon Anaguy", "Kamille Bonus", "Johnson Bumidang", "Marinel Bush", "Lhara Calado", "Trisha Caoili", "Kerubin Francisco", "Alegre Ojas", "Valerie Ragudos", "Carl Michael Gian Kristo Ramirez", "Jena Salcedo" }));
         subAccountOne.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 375, 300, 30));
 
         jLabel45.setFont(new java.awt.Font("Abadi MT Condensed", 0, 18)); // NOI18N
@@ -1683,7 +1668,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel63.setText("Raw Material Name:");
         infoAdjust.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 175, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
@@ -1708,7 +1693,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel67.setText("Reason of Adjustment:");
         infoAdjust.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         infoAdjust.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 210, 30));
 
         jSeparator20.setForeground(new java.awt.Color(0, 255, 255));
@@ -2413,6 +2398,10 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         
         ImageIcon icoSupList = new ImageIcon(getClass().getResource("/buttons/supplierlisthvr.png"));
         supList.setIcon(icoSupList);
+        
+        ArrayList<Supplier> displaySuppliers = wsc.getSuppliers();
+        DisplaySupplierList supplierList = new DisplaySupplierList((jTable1), displaySuppliers);
+        supplierList.execute();
     }//GEN-LAST:event_supListMouseClicked
 
     private void closeTwoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeTwoMouseEntered
@@ -2521,6 +2510,13 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         
         ImageIcon icoEmpList = new ImageIcon(getClass().getResource("/buttons/emplisthvr.png"));
         empList.setIcon(icoEmpList);
+        
+        //Get the List of Employee
+        ArrayList<Employee> employeList = wsc.getEmployeeList();
+        DisplayEmployees displayEmployees = new DisplayEmployees(jTable5, employeList);
+        displayEmployees.execute();
+        
+        
     }//GEN-LAST:event_empListMouseClicked
 
     private void newAccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newAccMouseClicked
