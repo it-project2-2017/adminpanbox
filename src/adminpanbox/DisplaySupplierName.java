@@ -5,7 +5,6 @@
  */
 package adminpanbox;
 
-import beans.Employee;
 import beans.Supplier;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +16,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author matt
  */
-public class DisplaySupplierList extends SwingWorker<Void, Supplier> {
-
-        private final JTable table;
-        private final ArrayList<Supplier> list;
-
-        public DisplaySupplierList(JTable table, ArrayList<Supplier> list) {
-            this.table = table;
-            this.list = list;
-        }
+public class DisplaySupplierName extends SwingWorker<Void, Supplier>{
     
+    private final JTable table;
+    private final ArrayList<Supplier> list;
+    
+    public DisplaySupplierName(JTable table, ArrayList<Supplier> list) {
+        this.table = table;
+        this.list = list;
+    }
+
     @Override
     protected Void doInBackground() throws Exception {
         for(Supplier p : list) {
@@ -40,7 +39,7 @@ public class DisplaySupplierList extends SwingWorker<Void, Supplier> {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         dtm.setRowCount(0);
             for(Supplier list : chunks) {
-                    dtm.addRow(new Object[]{list.getId(), list.getName(), "Sample", list.getAddress(), "Sample"});
+                    dtm.addRow(new Object[]{list.getName()});
             }
     }
     
