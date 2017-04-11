@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.UIManager;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -80,12 +81,12 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        supName = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        suppNameTF = new javax.swing.JTextField();
+        suppCodeL = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        supAddress = new javax.swing.JTextArea();
+        suppAddressTA = new javax.swing.JTextArea();
         jLabel17 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
@@ -130,7 +131,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         browse = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        empCodeL = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel27 = new javax.swing.JLabel();
         empNameTF = new javax.swing.JTextField();
@@ -578,6 +579,11 @@ public class mainAdminPanBox extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        suppTableName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                suppTableNameMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(suppTableName);
 
         subSupplierOne.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 210, 570));
@@ -629,8 +635,8 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Abadi MT Condensed", 0, 18)); // NOI18N
         jLabel14.setText("Supplier Name:");
         infoSup.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 125, -1, -1));
-        infoSup.add(supName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 300, 30));
-        infoSup.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 30));
+        infoSup.add(suppNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 300, 30));
+        infoSup.add(suppCodeL, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 30));
 
         jSeparator3.setForeground(new java.awt.Color(0, 255, 255));
         infoSup.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 105, 150, 10));
@@ -639,9 +645,9 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel16.setText("Supplier Address:");
         infoSup.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
-        supAddress.setColumns(20);
-        supAddress.setRows(5);
-        jScrollPane3.setViewportView(supAddress);
+        suppAddressTA.setColumns(20);
+        suppAddressTA.setRows(5);
+        jScrollPane3.setViewportView(suppAddressTA);
 
         infoSup.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 300, -1));
 
@@ -934,6 +940,11 @@ public class mainAdminPanBox extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        empTableName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                empTableNameMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(empTableName);
 
         subEmployeeOne.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 210, 570));
@@ -960,7 +971,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Abadi MT Condensed", 0, 18)); // NOI18N
         jLabel25.setText("Employee Code:");
         subEmployeeOne.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 115, -1, -1));
-        subEmployeeOne.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 150, 30));
+        subEmployeeOne.add(empCodeL, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 150, 30));
 
         jSeparator8.setForeground(new java.awt.Color(0, 255, 255));
         subEmployeeOne.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 145, 150, 10));
@@ -2873,8 +2884,8 @@ public class mainAdminPanBox extends javax.swing.JFrame {
     }//GEN-LAST:event_jXDatePicker10ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        String supplierName = supName.getText();
-        String supplierAddress = supAddress.getText();
+        String supplierName = suppNameTF.getText();
+        String supplierAddress = suppAddressTA.getText();
         String contactPer = contactPerson.getText();
         String suppTele = suppTelephone.getText();
 //        String suppMobile = suppMobile.get
@@ -2891,6 +2902,49 @@ public class mainAdminPanBox extends javax.swing.JFrame {
         String empAddress = empAddressTA.getText();
         String empMobileNum = empMobileNumFTF.getText();
     }//GEN-LAST:event_empAddButtonMouseClicked
+
+    private void suppTableNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suppTableNameMouseClicked
+        //Get the suppName that is clicked
+        TableModel suppTableModel = suppTableName.getModel();
+        int index = suppTableName.getSelectedRow();
+        int getIndexOfSuppName = 0;
+        String suppName = (String)suppTableModel.getValueAt(index, 0);
+        
+        
+        ArrayList<Supplier> suppliers = wsc.getSuppliers();
+        for(int i = 0; i < suppliers.size(); i++){
+            if ((suppliers.get(i).getName()).equalsIgnoreCase(suppName)) {
+                getIndexOfSuppName = i;
+            }
+        }
+        //Set the different Textfield to the suppliers information.
+        Supplier supp = suppliers.get(getIndexOfSuppName);
+        suppCodeL.setText(String.valueOf(supp.getId()));
+        suppNameTF.setText(supp.getName());
+        suppAddressTA.setText(supp.getAddress());
+        
+    }//GEN-LAST:event_suppTableNameMouseClicked
+
+    private void empTableNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empTableNameMouseClicked
+        //Get the Employee that is clicked
+        TableModel empTableModel = empTableName.getModel();
+        int index = empTableName.getSelectedRow();
+        int getIndexOfEmpName = 0;
+        String empName = (String)empTableModel.getValueAt(index, 0);
+        
+        ArrayList<Employee> empArrayList = wsc.getEmployeeList();
+        for (int i = 0; i < empArrayList.size(); i++) {
+            if((empArrayList.get(i).getName()).equalsIgnoreCase(empName)){
+                getIndexOfEmpName = i;
+            }
+        }
+        //Set the different Textfield to the employee information.
+        Employee employee = empArrayList.get(getIndexOfEmpName);
+        empCodeL.setText(String.valueOf(employee.getId()));
+        empNameTF.setText(employee.getName());
+        empPosCB.setSelectedItem(employee.getPosition());
+        //empDateHiredDP.setDate(employee.getDatehired());
+    }//GEN-LAST:event_empTableNameMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2965,6 +3019,7 @@ public class mainAdminPanBox extends javax.swing.JFrame {
     private javax.swing.JButton dailySales;
     private javax.swing.JButton empAddButton;
     private javax.swing.JTextArea empAddressTA;
+    private javax.swing.JLabel empCodeL;
     private org.jdesktop.swingx.JXDatePicker empDateHiredDP;
     private javax.swing.JButton empList;
     private javax.swing.JButton empMainButton;
@@ -3001,7 +3056,6 @@ public class mainAdminPanBox extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -3013,7 +3067,6 @@ public class mainAdminPanBox extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -3180,11 +3233,12 @@ public class mainAdminPanBox extends javax.swing.JFrame {
     private javax.swing.JPanel subReportsTwo;
     private javax.swing.JPanel subSupplierOne;
     private javax.swing.JPanel subSupplierTwo;
-    private javax.swing.JTextArea supAddress;
     private javax.swing.JButton supList;
-    private javax.swing.JTextField supName;
+    private javax.swing.JTextArea suppAddressTA;
+    private javax.swing.JLabel suppCodeL;
     private javax.swing.JButton suppMainButton;
     private javax.swing.JFormattedTextField suppMobile;
+    private javax.swing.JTextField suppNameTF;
     private javax.swing.JTable suppTableName;
     private javax.swing.JFormattedTextField suppTelephone;
     private javax.swing.JPanel supplierPanel;
